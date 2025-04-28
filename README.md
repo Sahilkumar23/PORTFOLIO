@@ -4,7 +4,7 @@
 My personal portfolio website showcasing my skills, projects, and certifications. The website features a modern design with sections for About Me, Education, Skills, Experience, Projects, and Certifications.
 
 ## Live Website
-Visit the live website at: [sahil-kumar-portfolio.netlify.app](https://sahil-kumar-portfolio.netlify.app)
+Visit the live website at: [sahil-kumar-portfolio.netlify.app](https://sahilkumar23.github.io/PORTFOLIO/)
 
 ## Features
 - Responsive design
