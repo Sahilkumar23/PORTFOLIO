@@ -66,19 +66,44 @@ window.addEventListener("focus", () => {
     document.title = docTitle;
 })
 
+// Project Modal Functions
 function openProjectModal(id) {
-  document.getElementById(id + '-modal').classList.add('active');
-}
-function closeProjectModal(id) {
-  document.getElementById(id + '-modal').classList.remove('active');
-}
-// Close modal when clicking outside modal-content
-window.addEventListener('click', function(event) {
-  document.querySelectorAll('.project-modal.active').forEach(function(modal) {
-    if (event.target === modal) {
-      modal.classList.remove('active');
+    const modal = document.getElementById(`${id}-modal`);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
-  });
+}
+
+function closeProjectModal(id) {
+    const modal = document.getElementById(`${id}-modal`);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.project-modal, .cert-modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            const id = modal.id.replace('-modal', '');
+            if (modal.classList.contains('project-modal')) {
+                closeProjectModal(id);
+            } else {
+                closeCertModal(id);
+            }
+        }
+    });
+});
+
+// Initialize modals on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const modals = document.querySelectorAll('.project-modal, .cert-modal');
+    modals.forEach(modal => {
+        modal.classList.remove('active');
+    });
 });
 
 // Certification Modal Functions
